@@ -1,5 +1,3 @@
-import chalk from "chalk";
-
 type MaybePromise<T> = T | Promise<T>;
 type ElementType<T> = T extends (infer E)[] ? E : never;
 type PairToRecord<K extends string, V> = { [key in K]: V };
