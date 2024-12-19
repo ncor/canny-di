@@ -9,6 +9,9 @@
       "default": "./dist/index.mjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "author": "ensi",
   "license": "MIT",
   "devDependencies": {
