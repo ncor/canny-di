@@ -1,6 +1,6 @@
 Completely type-safe, async-first IoC container without bullshit.
 
-```ts!
+```ts
 const di = new Container()
     .register("config", {
         resolve: getEnv
