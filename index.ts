@@ -1,10 +1,6 @@
 type MaybePromise<T> = T | Promise<T>;
 type ElementType<T> = T extends (infer E)[] ? E : never;
 type PairToRecord<K extends string, V> = { [key in K]: V };
-type Remap<
-    A extends Record<string, any>,
-    B extends Partial<Record<keyof A, string>>,
-> = { [K in keyof A as K extends keyof B ? B[K] & string : K]: A[K] };
 
 function assert(condition: any, message?: string): asserts condition {
     if (!condition) throw new Error(message);
@@ -14,9 +10,6 @@ const asyncify =
     <A extends any[], T>(fn: (...args: A) => MaybePromise<T>) =>
     async (...args: A) =>
         await fn(...args);
-
-const promisify = <T>(x: MaybePromise<T>): Promise<T> =>
-    x instanceof Promise ? x : Promise.resolve(x);
 
 const withoutElementsFrom = <T>(it: T[], xs: T[]) =>
     xs.filter((x) => !it.includes(x));
