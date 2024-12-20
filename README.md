@@ -28,8 +28,8 @@ const requestDi = di.clone()
         resolve: makeTodoController
     });
 
-app.use((req, res) => {
-    const todoController = requestDi.resolve("todoController", {
+app.use(async (req, res) => {
+    const todoController = await requestDi.resolve("todoController", {
         cacheKey: computeClientId(req),
         ttl: 60_000
     });
